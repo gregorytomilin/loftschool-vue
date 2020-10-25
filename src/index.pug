@@ -25,7 +25,7 @@ block content
         .hero__content
           .userinfo
             .userinfo__title Личный сайт #[span.userinfo__occ веб разработчика]
-            .userinfo__name Владимир Астаханов
+            .userinfo__name Григорий Томилин
         .hero__downbutton
           .scroll-down
             a(href="").scroll-down__btn Скролл
@@ -40,10 +40,12 @@ block content
                   +image('content/user.jpg', 'user__avatar-pic')
               .user__about
                 - 
+                  var yearBithday = 1988
+                  var currentYear = 2020
                   var userinfo = [
-                    ['Проживаю:', "Новосибирск"],
-                    ['Возраст:', "27 лет"],
-                    ['Родился:', "1 января 1991"],
+                    ['Проживаю:', "Кандалакша"],
+                    ['Возраст:', '1988'],
+                    ['Родился:', "21 апреля 1988"],
                   ];
                 table.user__table
                   each item in userinfo
