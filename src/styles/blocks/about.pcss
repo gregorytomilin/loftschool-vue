@@ -46,5 +46,14 @@
 
 .about__ps {
   font-style: italic;
+  position: relative;
   margin-bottom: 36px;
+  &:before{
+    position: absolute;
+    content:"*";
+    font-size: 48px;
+    color: rgba(#dB0200, .5);
+    left:-60px;
+    top: -10px;
+  }
 }
