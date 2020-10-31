@@ -1,0 +1,54 @@
+[
+    {
+        "id":1,
+        "category": "WebEnd",
+        "skills": [
+            {
+                "id" : 1,
+                "Title" : "HTML",
+                "Persent" : 32
+            },
+            {
+                "id" : 2,
+                "Title" : "CSS",
+                "Persent" : 76
+            },
+            {
+                "id" : 3,
+                "Title" : "JavaScript",
+                "Persent" : 15
+            },
+            {
+                "id" : 4,
+                "Title" : "Vue",
+                "Persent" : 50
+            }
+        ]
+    },
+    {
+        "id":1,
+        "category": "WorkFlow",
+        "skills": [
+            {
+                "id" : 10,
+                "Title" : "GIT",
+                "Persent" : 15
+            },
+            {
+                "id" : 11,
+                "Title" : "Terminal",
+                "Persent" : 32
+            },
+            {
+                "id" : 12,
+                "Title" : "Gulp",
+                "Persent" : 60
+            },
+            {
+                "id" : 13,
+                "Title" : "WebPack",
+                "Persent" : 71
+            }
+        ]
+    }
+]
