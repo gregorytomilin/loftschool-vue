@@ -1,8 +1,9 @@
 script(type="text/x-template")#preview-container
   .works-slider
     display(
-      :currentWork="currentWork",
-      :works="works",
+      :currentWork="currentWork"
+      :works="works"
+      :currentIndex="currentIndex"
       @slide = "slide"
     )
     info(
@@ -11,13 +12,12 @@ script(type="text/x-template")#preview-container
 
 
 script(type="text/x-template")#preview-display
-  .works-slider__pics(data-slide="2")
+  .works-slider__pics(:data-slide="currentIndex + 1")
     .works-slider__pics-content
       img(:src="currentWork.photo").works-slider__fullpic
       thumbs(
         :works="reversedWorks"
         :currentWork="currentWork"
-
       )
       btns(
         @slide="$emit('slide', $event)"
@@ -44,7 +44,9 @@ script(type="text/x-template")#preview-btns
 
 script(type="text/x-template")#preview-info
   .works-slider__data
-    tags
+    tags(
+      :tags="tagsArray"
+    )
     .works-slider__title {{currentWork.title}}
     .works-slider__desc
       p {{currentWork.desc}}
@@ -53,10 +55,8 @@ script(type="text/x-template")#preview-info
       
 script(type="text/x-template")#preview-tags
   ul.works-slider__tags
-    - var tags = ['HTML', 'CSS', 'JavaScript'];
-    each item in tags
-      li.works-slider__tag-item 
-        .tag #{item}
+    li.works-slider__tag-item(v-for="tag in tags")
+      .tag {{tag}}
 
 //- script(type="text/x-template")#slider-container
 //-   .works-slider(v-if="works.length")

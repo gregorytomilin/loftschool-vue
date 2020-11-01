@@ -1,13 +1,12 @@
 script(type="text/x-template")#reviews
   .reviews
     .reviews__header
-      .reviews__title.section-title Что обо мне говорят
+      .reviews__title.section-title Что обо мне не говорят
       .reviews__buttons
         button(type="button" @click="slide('prev')").reviews__btn.reviews__btn_prev
         button(type="button" @click="slide('next')").reviews__btn.reviews__btn_next
-    .reviews__content
-      ul.reviews__content-wrapper(ref="reviews-slider")
-        li.reviews__content-item(v-for="review in reviews")
+    swiper(ref="slider" :options="sliderOption")
+        swiper-slide(v-for="review in reviews" :key="reviews.id")
           .quote
             .quote__text
               p {{review.text}} 
@@ -15,7 +14,7 @@ script(type="text/x-template")#reviews
               .user-min
                 .user-min__avatar
                   .user-min__pic-wrapper
-                    img(:src="`http://localhost:8000/${review.photo}`").user-min__avatar-pic
+                    img(:src="review.photo").user-min__avatar-pic
                 .user-min__info
-                  .user-min__name {{review.author}}
+                  .user-min__name {{review.name}}
                   .user-min__occ {{review.occ}}

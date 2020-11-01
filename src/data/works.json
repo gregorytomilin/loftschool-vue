@@ -1,8 +1,8 @@
 [
     {
         "id": 1,
-        "title": "Сайт образования катионов",
-        "skills": "HTML, CSS, JS",
+        "title": "Сайт ветролётиков и гоночек",
+        "skills": "1 HTML, CSS, JS",
         "photo": "slider-1.jpg",
         "link": "//google.com",
         "desc": "Изучал что-то очень быстро без должной практики"
@@ -10,17 +10,26 @@
     {
         "id": 2,
         "title": "Сайт джум джум",
-        "skills": "HTML, CSS, JS",
+        "skills": "2 HTML, CSS, JS",
         "photo": "slider-2.jpg",
         "link": "//google.com",
-        "desc": "Изучал что-то очень быстро без должной практики"
+        "desc": "Делал ctrlc ctrl v"
     },
     {
         "id": 3,
-        "title": "Сайт ветролётиков и гоночек",
-        "skills": "HTML, CSS, JS",
+        "title": "Сайт образования катионов",
+        "skills": "3 HTML, CSS, JS",
         "photo": "slider-3.jpg",
         "link": "//google.com",
-        "desc": "Изучал что-то очень быстро без должной практики, в результате имееим то, что имеем"
+        "desc": "В результате имеем то, что имеем"
+    },
+    {
+        "id": 3,
+        "title": "Сайт образования катионов",
+        "skills": "3 HTML, CSS, JS",
+        "photo": "slider-3.jpg",
+        "link": "//google.com",
+        "desc": "В результате имеем то, что имеем"
     }
+
 ]
