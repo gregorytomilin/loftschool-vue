@@ -5,49 +5,49 @@
         "skills": [
             {
                 "id" : 1,
-                "Title" : "HTML",
-                "Persent" : 32
+                "title" : "HTML",
+                "percent" : 90
             },
             {
                 "id" : 2,
-                "Title" : "CSS",
-                "Persent" : 76
+                "title" : "CSS",
+                "percent" : 80
             },
             {
                 "id" : 3,
-                "Title" : "JavaScript",
-                "Persent" : 15
+                "title" : "JavaScript",
+                "percent" : 60
             },
             {
                 "id" : 4,
-                "Title" : "Vue",
-                "Persent" : 50
+                "title" : "Vue",
+                "percent" : 10
             }
         ]
     },
     {
-        "id":1,
+        "id":2,
         "category": "WorkFlow",
         "skills": [
             {
                 "id" : 10,
-                "Title" : "GIT",
-                "Persent" : 15
+                "title" : "GIT",
+                "percent" : 60
             },
             {
                 "id" : 11,
-                "Title" : "Terminal",
-                "Persent" : 32
+                "title" : "Terminal",
+                "percent" : 50
             },
             {
                 "id" : 12,
-                "Title" : "Gulp",
-                "Persent" : 60
+                "title" : "Gulp",
+                "percent" : 45
             },
             {
                 "id" : 13,
-                "Title" : "WebPack",
-                "Persent" : 71
+                "title" : "WebPack",
+                "percent" : 20
             }
         ]
     }

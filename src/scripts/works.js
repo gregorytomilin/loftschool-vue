@@ -1,121 +1,197 @@
+import { data } from "autoprefixer";
 import Vue from "vue";
-import axios from "axios";
 
-const baseUrl = process.env.BASE_URL;
 
-axios.defaults.baseURL = baseUrl;
-
-const btns = {
-  template: "#slider-btns",
-  methods: {
-    slide(direction) {
-      switch (direction) {
-        case "next":
-          break;
-        case "prev":
-          break;
-      }
-    }
-  }
-};
 
 const thumbs = {
-  template: "#slider-thumbs",
-  props: {
-    works: Array,
-    currentWork: Object
-  }
-};
-
-const tags = {
-  template: "#slider-tags",
-  props: {
-    tags: Array
-  }
-};
-
-const info = {
-  template: "#slider-info",
-  components: { tags },
-  props: {
-    currentWork: Object
-  },
-  computed: {
-    tagsArray() {
-      return this.currentWork.techs.split(",");
-    }
-  }
-};
-
+  props: ["works", "currentWork"],
+  template: "#preview-thumbs"
+  
+}
+const btns = {
+  template: "#preview-btns",
+ 
+}
 const display = {
-  components: { btns, thumbs },
-  props: {
-    works: Array,
-    currentWork: Object,
-    currentIndex: Number
-  },
+  props: ["currentWork", "works"],
+  template: "#preview-display",
+  components: {thumbs, btns},
   computed: {
-    reversedWorks() {
+    reversedWorks(){
       const works = [...this.works];
       return works.reverse();
     }
-  },
-  template: "#slider-display"
-};
+  }
+ 
+}
+const tags = {
+  template: "#preview-tags"
+}
+const info = {
+  props: ["currentWork"],
+  template: "#preview-info",
+  components: {tags}
+
+}
 
 new Vue({
-  el: "#works-slider-component",
-  data() {
+  el: "#preview-component",
+  template: "#preview-container",
+  components: {display, info},
+  data(){
     return {
-      works: [],
+      works:[],
       currentIndex: 0
-    };
+    }
   },
-  components: {
-    display,
-    info
-  },
-  computed: {
-    currentWork() {
+  computed:{
+    currentWork(){
       return this.works[this.currentIndex];
     }
   },
   methods: {
-    handleSlide(direction) {
-      switch (direction) {
-        case "next":
-          this.currentIndex++;
-          break;
-        case "prev":
-          this.currentIndex--;
-          break;
+    requireImagesToArray(data){
+      return data.map(item => {
+        const requiredImg = require(`../images/content/${item.photo}`).default;
+        item.photo = requiredImg;
+        return item
+      })
+    },
+    slide(direction, e){
+      this.$emit("slide", direction);
+      switch(direction) {
+        case "next" : 
+        this.currentIndex++
+        break;
+        case "prev" : 
+        this.currentIndex--
+        break;
       }
-    },
-    slideDirectly(workToShow) {
-      this.works.forEach((item, index) => {
-        if (workToShow.id === item.id) {
-          this.currentIndex = index;
-        }
-      });
-    },
-    makeInfititeLoopForCurIndex(value) {
-      const worksAmount = this.works.length - 1;
+    }
+  },
+  created(){
+    const data = require("../data/works.json")
+    this.works = this.requireImagesToArray(data);
+  }
+})
 
-      if (value > worksAmount) this.currentIndex = 0;
-      if (value < 0) this.currentIndex = worksAmount;
-    },
-    async fetchWorks() {
-      const { data: works } = await axios.get("/works/1");
-      this.works = works;
-    }
-  },
-  watch: {
-    currentIndex(value) {
-      this.makeInfititeLoopForCurIndex(value);
-    }
-  },
-  async mounted() {
-    await this.fetchWorks();
-  },
-  template: "#slider-container"
-});
+// import axios from "axios";
+
+// const baseUrl = process.env.BASE_URL;
+
+// axios.defaults.baseURL = baseUrl;
+
+// const btns = {
+//   template: "#slider-btns",
+//   methods: {
+//     slide(direction) {
+//       switch (direction) {
+//         case "next":
+//           break;
+//         case "prev":
+//           break;
+//       }
+//     }
+//   }
+// };
+
+// const thumbs = {
+//   template: "#slider-thumbs",
+//   props: {
+//     works: Array,
+//     currentWork: Object
+//   }
+// };
+
+// const tags = {
+//   template: "#slider-tags",
+//   props: {
+//     tags: Array
+//   }
+// };
+
+// const info = {
+//   template: "#slider-info",
+//   components: { tags },
+//   props: {
+//     currentWork: Object
+//   },
+//   computed: {
+//     tagsArray() {
+//       return this.currentWork.techs.split(",");
+//     }
+//   }
+// };
+
+// const display = {
+//   components: { btns, thumbs },
+//   props: {
+//     works: Array,
+//     currentWork: Object,
+//     currentIndex: Number
+//   },
+//   computed: {
+//     reversedWorks() {
+//       const works = [...this.works];
+//       return works.reverse();
+//     }
+//   },
+//   template: "#slider-display"
+// };
+
+// new Vue({
+//   el: "#works-slider-component",
+//   data() {
+//     return {
+//       works: [],
+//       currentIndex: 0
+//     };
+//   },
+//   components: {
+//     display,
+//     info
+//   },
+//   computed: {
+//     currentWork() {
+//       return this.works[this.currentIndex];
+//     }
+//   },
+//   methods: {
+//     handleSlide(direction) {
+//       switch (direction) {
+//         case "next":
+//           this.currentIndex++;
+//           break;
+//         case "prev":
+//           this.currentIndex--;
+//           break;
+//       }
+//     },
+//     slideDirectly(workToShow) {
+//       this.works.forEach((item, index) => {
+//         if (workToShow.id === item.id) {
+//           this.currentIndex = index;
+//         }
+//       });
+//     },
+//     makeInfititeLoopForCurIndex(value) {
+//       const worksAmount = this.works.length - 1;
+
+//       if (value > worksAmount) this.currentIndex = 0;
+//       if (value < 0) this.currentIndex = worksAmount;
+//     },
+//     async fetchWorks() {
+//       const { data: works } = await axios.get("/works/1");
+//       this.works = works;
+//     }
+//   },
+//   watch: {
+//     currentIndex(value) {
+//       this.makeInfititeLoopForCurIndex(value);
+//     }
+//   },
+//   async mounted() {
+//     await this.fetchWorks();
+//   },
+//   template: "#slider-container"
+// });

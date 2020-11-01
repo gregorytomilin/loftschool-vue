@@ -130,6 +130,9 @@
       opacity: 1;
     }
   }
+  &:focus{
+    outline:none;
+  }
   &_prev {
     &:before {
       transform: translate(-50%, -50%) rotate(-270deg);
@@ -170,6 +173,10 @@
 .works-slider__thumb-link {
   display: block;
   height: 100%;
+  padding: 0;
+  &:focus{
+    outline: none;
+  }
 }
 
 .works-slider__tags {
