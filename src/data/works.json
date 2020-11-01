@@ -22,14 +22,5 @@
         "photo": "slider-3.jpg",
         "link": "//google.com",
         "desc": "В результате имеем то, что имеем"
-    },
-    {
-        "id": 3,
-        "title": "Сайт образования катионов",
-        "skills": "3 HTML, CSS, JS",
-        "photo": "slider-3.jpg",
-        "link": "//google.com",
-        "desc": "В результате имеем то, что имеем"
     }
-
 ]

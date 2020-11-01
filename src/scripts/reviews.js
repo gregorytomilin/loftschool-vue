@@ -17,7 +17,16 @@ new Vue ({
     return {
       reviews : [],
       sliderOption: {
-        slidesPerView: 2
+        slidesPerView: 2,
+        breakpoints: {
+          // when window width is <= 320px
+          320: {
+            slidesPerView: 1,
+          },
+          480: {
+    	  		slidesPerView: 2,
+    	  	}
+        }
       }
     }
   },
@@ -34,9 +43,13 @@ new Vue ({
       switch(direction) {
         case "next" :
           slider.slideNext();
+          checkEndBegin(slider.isEnd, slider.isBeginning);
+          console.log(slider);
+
         break;
         case "prev" :
           slider.slidePrev();
+          checkEndBegin(slider.isEnd, slider.isBeginning);
         break;
       }
     }
@@ -46,6 +59,22 @@ new Vue ({
     this.reviews = this.requireImagesToArray(data);
   }
 })
+
+function checkEndBegin(isend, isbegin){
+  const btnReviewsNext = document.querySelector('.reviews__btn_next');
+  const btnReviewsPrev = document.querySelector('.reviews__btn_prev');
+  console.log(isbegin);
+  if(isbegin){
+    btnReviewsPrev.style.opacity = 0.5;
+  } else {
+    btnReviewsPrev.style.opacity = 1;
+  }
+  if(isend){
+    btnReviewsNext.style.opacity = 0.5;
+  } else {
+    btnReviewsNext.style.opacity = 1;
+  }
+}
 
 // new Vue({
 //   el: "#reviews-component",
