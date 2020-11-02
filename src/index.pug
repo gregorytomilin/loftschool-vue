@@ -5,6 +5,7 @@ block content
     section.fullscreen-section.hero
       .container.hero__container
         header.header
+          +icon('burger-menu', 'burger-menu')
           .header__logo
             a.logo(href="") ТГ
           .header__menu 
@@ -19,7 +20,7 @@ block content
               - var socials = ['insta', 'vk', 'github', 'envelope'];
               each item in socials
                 li.socials__item
-                  a(href=`${item === 'envelope' ? 'mailto:sabantsev@yandex.ru' : '#'}`).socials__link
+                  a(href=`${item === 'envelope' ? 'mailto:g.tomilin@mail.ru' : '#'}`).socials__link
                     +icon(item, 'socials__icon')
 
         .hero__content

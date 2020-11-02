@@ -55,5 +55,16 @@
     color: rgba(#dB0200, .5);
     left:-60px;
     top: -10px;
+    @include phones {
+      font-size: 30px;
+      top: 0;
+      left: -30px;
+    }
+  }
+}
+
+.about__main-text-content{
+  @include phones{
+    margin-bottom: 10px;
   }
 }
