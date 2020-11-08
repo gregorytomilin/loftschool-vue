@@ -1,5 +1,5 @@
 <template>
-  <div class="input__error-tooltip-container">{{text}}</div>
+  <div class="input__error-tooltip-container">{{ text }}</div>
 </template>
 
 <script>

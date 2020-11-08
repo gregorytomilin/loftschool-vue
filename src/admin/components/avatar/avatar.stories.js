@@ -15,7 +15,7 @@ export const defaultView = () => ({
     }
   },
   template: `
-    <avatar :size="size" src="https://picsum.photos/300/300" />
+    <avatar :size="size" src="https://img0.liveinternet.ru/images/attach/d/1/134/563/134563190_animalsorangutan_3152795k.jpg" />
   `,
 });
 

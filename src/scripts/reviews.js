@@ -54,6 +54,7 @@ new Vue ({
       }
     }
   },
+  mounted(){},
   created() {
     const data = require("../data/reviews.json");
     this.reviews = this.requireImagesToArray(data);
@@ -63,7 +64,6 @@ new Vue ({
 function checkEndBegin(isend, isbegin){
   const btnReviewsNext = document.querySelector('.reviews__btn_next');
   const btnReviewsPrev = document.querySelector('.reviews__btn_prev');
-  console.log(isbegin);
   if(isbegin){
     btnReviewsPrev.style.opacity = 0.5;
   } else {
